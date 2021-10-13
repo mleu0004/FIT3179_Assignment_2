@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple pie chart with embedded data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/suicide.csv"
+  },
+  "width":350,
+  "height":320,
+  "transform": [
+    {
+      "window": [{"op": "sum", "field": "suicides_no", "as": "TotalSuicides"}],
+      "frame": [null, null]
+    },
+    {
+      "joinaggregate": [{"op": "sum", "field": "suicides_no", "as": "sum_sex"}],
+      "groupby": ["sex"]
+    },
+    {"calculate": "datum.sum_sex/datum.TotalSuicides", "as": "percentage"}
+  ],
+  "encoding": {
+    "theta": {"field": "sum_sex", "stack": true, "aggregate": "sum"}
+  },
+  "layer": [
+    {
+      "mark": {"type": "arc", "outerRadius": 150},
+      "encoding": {
+        "color": {
+          "field": "sex", 
+          "type": "nominal",
+          "scale":{"scheme":"tealblues"}},
+        "tooltip": [{"field": "sex"}, {"field": "percentage", "format": ".2%"}]
+      }
+    },
+    {
+      "mark": {"type": "text", "radius": 80, "fontSize": 25},
+      "encoding": {"text": {"field": "percentage", "format": ".2%"}}
+    }
+  ],
+  "config": {
+    "background":"rgb(239,243,255)"
+  }
+}

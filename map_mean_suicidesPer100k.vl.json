@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 500,
+  "title": "Mean Suicides Rate in Each Countr",
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/testing_map.geo.json",
+        "format": {"type": "topojson", "feature": "testing.geo"}
+      },
+      "projection": {"type": "equirectangular"},
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "gray"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/suicide.csv"
+      },
+      "transform": [
+        {
+          "lookup": "country",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/testing_map.geo.json",
+              "format": {"type": "topojson", "feature": "testing.geo"}
+            },
+            "key": "properties.name"
+          },
+          "as": "geo"
+        },
+        {
+          "joinaggregate": [
+            {"op": "mean", "field": "suicidesPer100k", "as": "suicides100"}
+          ],
+          "groupby": ["country"]
+        }
+      ],
+      "projection": {"type": "equirectangular"},
+      "mark": {"type":"geoshape", "stroke":"black"},
+      "encoding": {
+        "shape": {"field": "geo", "type": "geojson"},
+        "color": {
+          "field": "suicides100",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [5, 13, 20, 30, 35],
+            "range": ["#f0f9e8", "#bae4bc", "#7bccc4", "#43a2ca", "#0868ac"]
+          }
+        },
+        "tooltip": [
+          {"field": "country", "type": "nominal"},
+          {"field": "suicides100", "type": "quantitative", "format": "r"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background":"rgb(239,243,255)"
+  }
+}
