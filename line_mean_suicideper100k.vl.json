@@ -19,7 +19,7 @@
     "color": {"value": "teal"},
     "tooltip": [
       {"field": "Year", "type": "nominal"},
-      {"field": "sum_suicidesPer100k", "title": "sum suicide rate", "format": "r"}
+      {"field": "mean_suicidesPer100k", "title": "mean suicide rate", "format": "r"}
     ]
   },
   "config": {
