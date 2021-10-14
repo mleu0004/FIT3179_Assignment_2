@@ -9,14 +9,23 @@
   "mark": {"type": "line", "point": true},
   "transform": [{"calculate": "year(datum.year)", "as": "Year"}],
   "encoding": {
-    "x": {"field": "Year", "type": "nominal"},
+    "x": {
+      "field": "Year", 
+      "type": "nominal",
+      "axis":{"labelAngle":-45}},
     "y": {
       "aggregate": "mean",
       "field": "suicidesPer100k",
       "type": "quantitative",
       "title": "Suicides Per 100k"
     },
-    "color": {"field": "age"},
+    "color": {
+      "field": "age",
+      "legend":{
+        "direction": "horizontal",
+        "orient": "top",
+        "title": "Age"
+      }},
     "tooltip": [
       {"field": "Year", "type": "nominal"},
       {"field": "mean_suicidesPer100k", "title": "mean of suicide rate", "format": "r"}
