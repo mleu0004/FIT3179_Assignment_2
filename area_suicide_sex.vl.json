@@ -3,7 +3,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/suicide.csv"
   },
-  "width":600,
+  "width":700,
   "height":300,
   "mark": "area",
   
@@ -19,7 +19,7 @@
     },
     "color": {
       "field": "sex",
-      "scale": {"scheme": "tealblues"},
+      "scale": {"scheme": "blues"},
       "legend":{
         "direction": "horizontal",
         "orient": "top",

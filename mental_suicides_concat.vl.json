@@ -5,7 +5,7 @@
   },
   "hconcat": [
     {
-      "width": 600,
+      "width": 550,
       "height": 300,
       "transform": [
         {
@@ -87,7 +87,7 @@
       "data": {
         "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/suicide.csv"
       },
-      "width": 600,
+      "width": 550,
       "height": 300,
       "transform": [
         {"calculate": "year(datum.year)", "as": "year"},
