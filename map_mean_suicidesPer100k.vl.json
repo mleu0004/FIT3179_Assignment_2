@@ -5,7 +5,7 @@
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/testing_map.geo.json",
+        "url": "testing_map.geo.json",
         "format": {"type": "topojson", "feature": "testing.geo"}
       },
       "projection": {"type": "equirectangular"},
@@ -13,14 +13,14 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/suicide.csv"
+        "url": "suicide.csv"
       },
       "transform": [
         {
           "lookup": "country",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/testing_map.geo.json",
+              "url": "testing_map.geo.json",
               "format": {"type": "topojson", "feature": "testing.geo"}
             },
             "key": "properties.name"

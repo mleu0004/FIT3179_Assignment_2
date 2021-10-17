@@ -4,7 +4,7 @@
   "height": 300,
   "title": "Suicide Rate for Different Age Group",
   "data": {
-    "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/suicide.csv"
+    "url": "suicide.csv"
   },
   "mark": {"type": "line", "point": true},
   "transform": [{"calculate": "year(datum.year)", "as": "Year"}],

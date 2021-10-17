@@ -3,7 +3,7 @@
   "width": 700,
   "height": 300,
   "data": {
-    "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/suicide.csv"
+    "url": "suicide.csv"
   },
   "params": [
     {
@@ -60,7 +60,7 @@
     {
       "mark": {"type": "rule", "color": "black"},
       "data": {
-        "url": "https://raw.githubusercontent.com/mleu0004/3179-testrepo/main/suicide.csv"
+        "url": "suicide.csv"
       },
       "transform": [
         {"calculate": "year(datum.year)", "as": "year"},
